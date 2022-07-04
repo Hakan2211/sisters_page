@@ -2,6 +2,7 @@ import User from "../../models/User.js";
 import { generateToken } from "../../utils/generateToken.js";
 import dotenv from "dotenv";
 import { StatusCodes } from "http-status-codes";
+import { BadRequestError, UnAuthenticatedError } from "../../errors/index.js";
 
 dotenv.config();
 
@@ -10,9 +11,14 @@ dotenv.config();
 //----------------------------------------------------------------
 const register = async (req, res) => {
   const { name, email, password } = req.body;
+
+  if (!name || !email || !password) {
+    throw new BadRequestError("Please provide all values.");
+  }
+
   const userExistsAlready = await User.findOne({ email });
   if (userExistsAlready) {
-    throw new Error("User already exists.");
+    throw new BadRequestError("Email already exists.");
   }
 
   const user = await User.create({
@@ -30,18 +36,16 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    throw new Error("Please provide Email and Password.");
+    throw new BadRequestError("Please provide all values");
   }
 
   const user = await User.findOne({ email });
   if (!user) {
-    throw new Error(
-      "Inavalid credentials. Please register an account before logging in."
-    );
+    throw new UnAuthenticatedError("Invalid Credentials");
   }
   const isPasswordCorrect = await user.comparePassword(password);
   if (!isPasswordCorrect) {
-    throw new Error("Invalid Credentials");
+    throw new UnAuthenticatedError("Invalid Credentials");
   } else {
     res.status(StatusCodes.OK).json({
       _id: user?._id,

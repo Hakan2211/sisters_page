@@ -7,6 +7,8 @@ import rateLimiter from "express-rate-limit";
 import helmet from "helmet";
 import xss from "xss-clean";
 import cors from "cors";
+import errorHandlerMiddleware from "./middlewares/error-handler.js";
+import notFoundMiddleWare from "./middlewares/not-found.js";
 
 import authRouter from "./modules/auth/auth.routes.js";
 
@@ -33,5 +35,8 @@ app.use(xss());
 app.use(express.json());
 
 app.use("/api/auth", authRouter);
+
+app.use(notFoundMiddleWare);
+app.use(errorHandlerMiddleware);
 
 app.listen(PORT, console.log(`Server is running at port ${PORT}`));
