@@ -1,9 +1,14 @@
+import { Button } from './components'
+import GlobalStyles from './styles/global-styles'
+
 const App = () => {
   return (
-    <div className="App">
+    <>
+      <GlobalStyles />
       <h1>Starter</h1>
-    </div>
-  );
-};
+      <Button>Button</Button>
+    </>
+  )
+}
 
-export default App;
+export default App
