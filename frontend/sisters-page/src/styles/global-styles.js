@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
+
     :root{
         --primary:#ffa21f;
         --primary-light:#ffc170;
@@ -19,6 +20,10 @@ const GlobalStyles = createGlobalStyle`
         --grey:#a3a3a3;
         --grey-light:#d6d6d6;
         --grey-dark:#666666;
+
+        --borderRound: 12px;
+
+        --font-primary:"Quicksand"
 
 
     }
