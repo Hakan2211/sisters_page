@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
         --tertiary-dark:#239589;
 
         --black:#041010;
-        --white:#000000;
+        --white:#ffffff;
         --grey:#a3a3a3;
         --grey-light:#d6d6d6;
         --grey-dark:#666666;
@@ -34,6 +34,9 @@ const GlobalStyles = createGlobalStyle`
 
 * {
   margin: 0;
+}
+html{
+  font-size: 62.5%;
 }
 
 html, body {

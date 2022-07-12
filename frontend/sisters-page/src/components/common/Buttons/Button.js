@@ -3,23 +3,24 @@ import styled from 'styled-components'
 const SIZES = {
   small: {
     '--borderRadius': 2 + 'px',
-    '--fontSize': 16 / 16 + 'rem',
-    '--padding': '4px 12px',
+    '--fontSize': '1.6rem',
+    '--padding': '0.4rem 1.2rem',
   },
   medium: {
     '--borderRadius': 2 + 'px',
-    '--fontSize': 18 / 16 + 'rem',
-    '--padding': '12px 20px',
+    '--fontSize': '1.8rem',
+    '--padding': '1.2rem 2rem',
   },
   large: {
     '--borderRadius': 4 + 'px',
-    '--fontSize': 21 / 16 + 'rem',
-    '--padding': '16px 32px',
+    '--fontSize': '2.1rem',
+    '--padding': '1.6rem 3.2rem',
   },
 }
 
 const Button = ({ size, variant, children }) => {
   const styles = SIZES[size]
+  console.log(styles)
 
   let Component
 
@@ -41,7 +42,7 @@ const Button = ({ size, variant, children }) => {
     throw new Error(`Unrecognized Button variant: ${variant}`)
   }
 
-  return <Component styles={styles}>{children}</Component>
+  return <Component style={styles}>{children}</Component>
 }
 
 const ButtonBase = styled.button`
@@ -92,14 +93,19 @@ const WhiteButton = styled(OutlineButton)`
 const RoundButton = styled(PrimaryButton)`
   border-radius: var(--borderRound);
 `
-const CircularButton = styled(PrimaryButton)`
-  border-radius: 50%;
-`
 
 const ButtonWithIcon = styled(ButtonBase)`
   display: flex;
   align-items: center;
   justify-content: center;
 `
-
+const CircularButton = styled(PrimaryButton)`
+  border-radius: 50%;
+  //width: 50px;
+  //height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+`
 export default Button

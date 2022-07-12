@@ -1,4 +1,4 @@
-import { Button } from './components'
+import { Button, CircularButton } from './components'
 import GlobalStyles from './styles/global-styles'
 import { CgMathPlus } from 'react-icons/cg'
 
@@ -10,10 +10,10 @@ const App = () => {
       <Button size='medium' variant='primary'>
         Click
       </Button>
-      <Button size='medium' variant='secondary'>
+      <Button size='small' variant='secondary'>
         Click
       </Button>
-      <Button size='medium' variant='outline'>
+      <Button size='large' variant='outline'>
         Click
       </Button>
       <Button size='medium' variant='white'>
@@ -23,12 +23,16 @@ const App = () => {
         Click
       </Button>
       <Button size='medium' variant='buttonWithIcon'>
-        {CgMathPlus}
+        <CgMathPlus />
         Click
       </Button>
-      <Button size='medium' variant='circular'>
-        {CgMathPlus}
+      <Button size='small' variant='circular'>
+        <CgMathPlus />
       </Button>
+      <CircularButton size={'small'}>
+        {' '}
+        <CgMathPlus />
+      </CircularButton>
     </>
   )
 }
