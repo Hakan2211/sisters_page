@@ -1,38 +1,23 @@
-import { Button, CircularButton } from './components'
 import GlobalStyles from './styles/global-styles'
-import { CgMathPlus } from 'react-icons/cg'
+
+import { Routes, Route } from 'react-router-dom'
+import LandingPage from './views/LandingPage/LandingPage'
+import Dashboard from './views/Dashboard/Dashboard'
+import Calendar from './views/Calendar/Calendar'
+import About from './views/About/About'
+import ComponentsTest from './views/styled-components/ComponentsTest'
 
 const App = () => {
   return (
     <>
+      <Routes>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/calendar' element={<Calendar />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/styled-components' element={<ComponentsTest />} />
+      </Routes>
       <GlobalStyles />
-      <h1>Starter</h1>
-      <Button size='medium' variant='primary'>
-        Click
-      </Button>
-      <Button size='small' variant='secondary'>
-        Click
-      </Button>
-      <Button size='large' variant='outline'>
-        Click
-      </Button>
-      <Button size='medium' variant='white'>
-        Click
-      </Button>
-      <Button size='medium' variant='round'>
-        Click
-      </Button>
-      <Button size='medium' variant='buttonWithIcon'>
-        <CgMathPlus />
-        Click
-      </Button>
-      <Button size='small' variant='circular'>
-        <CgMathPlus />
-      </Button>
-      <CircularButton size={'small'}>
-        {' '}
-        <CgMathPlus />
-      </CircularButton>
     </>
   )
 }

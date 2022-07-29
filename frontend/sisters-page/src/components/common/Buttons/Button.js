@@ -20,7 +20,6 @@ const SIZES = {
 
 const Button = ({ size, variant, children }) => {
   const styles = SIZES[size]
-  console.log(styles)
 
   let Component
 

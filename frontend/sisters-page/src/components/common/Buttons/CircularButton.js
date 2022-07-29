@@ -3,33 +3,62 @@ import styled from 'styled-components'
 const SIZES = {
   small: {
     '--fontSize': '1.6rem',
-    '--padding': '1rem',
+    '--padding': '0.5rem',
   },
   medium: {
     '--fontSize': '1.8rem',
-    '--padding': '2rem',
+    '--padding': '0.8rem',
   },
   large: {
     '--fontSize': '2.1rem',
-    '--padding': '3rem',
+    '--padding': '1.2rem',
   },
 }
 
-const CircularButton = ({ size, children }) => {
+const CircularButton = ({ size, children, variant }) => {
   const styles = SIZES[size]
-  return <CircularStyled style={styles}>{children}</CircularStyled>
+
+  let Component
+
+  if (variant === 'primary') {
+    Component = PrimaryButton
+  }
+  //   } else if (variant === 'secondary') {
+  //     Component = SecondaryButton
+  //   } else if (variant === 'outline') {
+  //     Component = OutlineButton
+  //   } else if (variant === 'white') {
+  //     Component = WhiteButton
+  //   } else if (variant === 'buttonWithIcon') {
+  //     Component = ButtonWithIcon
+  //   } else if (variant === 'round') {
+  //     Component = RoundButton
+  //   } else if (variant === 'circular') {
+  //     Component = CircularButton
+  else {
+    throw new Error(`Unrecognized Button variant: ${variant}`)
+  }
+
+  return <Component style={styles}>{children}</Component>
 }
 
-const CircularStyled = styled.button`
+const CircularButtonBase = styled.button`
   border-radius: 50%;
-  //width: 50px;
-  //height: 50px;
+  /* width: 50px;
+  height: 50px; */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
   cursor: pointer;
   border: none;
+  padding: var(--padding);
+`
+const PrimaryButton = styled(CircularButtonBase)`
+  background-color: var(--primary);
+  color: var(--white);
+  &:hover {
+    background-color: var(--primary-light);
+  }
 `
 
 export default CircularButton
