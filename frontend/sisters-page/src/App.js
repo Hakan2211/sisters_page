@@ -15,7 +15,7 @@ const App = () => {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/calendar' element={<Calendar />} />
         <Route path='/about' element={<About />} />
-        <Route path='/styled-components' element={<ComponentsTest />} />
+        <Route path='/components' element={<ComponentsTest />} />
       </Routes>
       <GlobalStyles />
     </>
