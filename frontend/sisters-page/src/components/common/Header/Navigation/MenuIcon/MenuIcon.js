@@ -1,59 +1,64 @@
 import { useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const MenuIcon = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Wrapper
-      onClick={() => setIsOpen(!isOpen)}
-      style={isOpen ? { position: 'relative' } : {}}
-    >
-      <MenuStroke
-        style={
-          isOpen
-            ? {
-                transform: 'rotate(45deg)',
-                transformOrigin: 'center',
-                position: 'absolute',
-                top: '50%',
-              }
-            : {}
-        }
-      />
-      <MenuStroke style={isOpen ? { display: 'none' } : {}} />
-      <MenuStroke
-        short
-        style={
-          isOpen
-            ? {
-                transform: 'rotate(-45deg)',
-                transformOrigin: ' center',
-                width: '30px',
-                position: 'absolute',
-                top: '50%',
-              }
-            : {}
-        }
-      />
+    <Wrapper onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
+      <FirstStroke isOpen={isOpen} />
+      <SecondStroke isOpen={isOpen} />
+      <ThirdStroke isOpen={isOpen} />
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  width: 50px;
-  height: 35px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: end;
-  margin-left: 50px;
+  align-items: ${(props) => (props.isOpen ? 'center' : 'end')};
+  position: ${({ isOpen }) => (isOpen ? 'relative' : '')};
   cursor: pointer;
 `
 
-const MenuStroke = styled.div`
+const FirstStroke = styled.div`
   border: 1px solid var(--black);
-  width: ${(props) => (props.short ? '24px' : '30px')};
+  width: 30px;
   height: 1px;
+  transform: ${({ isOpen }) => (isOpen ? 'rotate(45deg)' : 'translateY(10px)')};
+  transform-origin: ${({ isOpen }) => (isOpen ? 'center' : '')};
+  position: ${({ isOpen }) => (isOpen ? 'absolute' : '')};
+  top: ${({ isOpen }) => (isOpen ? '50%' : '')};
+  /* ${({ isOpen }) =>
+    isOpen &&
+    css`
+          transform-origin: center,
+          position: absolute,
+          top: 50%
+                `} */
 `
+
+const SecondStroke = styled.div`
+  border: 1px solid var(--black);
+  width: 30px;
+  height: 1px;
+  display: ${({ isOpen }) => isOpen && 'none'};
+`
+const ThirdStroke = styled.div`
+  border: 1px solid var(--black);
+  width: ${({ isOpen }) => (isOpen ? '30px' : '24px')};
+  height: 1px;
+  transform: ${({ isOpen }) =>
+    isOpen ? 'rotate(-45deg)' : 'translateY(-10px)'};
+  transform-origin: ${({ isOpen }) => (isOpen ? 'center' : '')};
+
+  /* ${(isOpen) =>
+    isOpen &&
+    css`
+    transform-origin: 'center',
+    position: 'absolute',
+    top: '50%'`} */
+`
+
 export default MenuIcon

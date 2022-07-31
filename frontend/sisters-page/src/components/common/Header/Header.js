@@ -12,6 +12,10 @@ const Header = () => {
 
 const Wrapper = styled.header`
   background-color: red;
+  grid-area: header;
+  display: flex;
+  padding-top: 16px;
+  justify-content: center;
 `
 
 export default Header
