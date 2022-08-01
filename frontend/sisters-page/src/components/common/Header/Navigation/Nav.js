@@ -1,5 +1,6 @@
 import MenuIcon from './MenuIcon/MenuIcon'
 import styled from 'styled-components'
+import SocialMedia from '../../../Social-Media-Links/social-media'
 
 const Nav = () => {
   return (
@@ -7,6 +8,7 @@ const Nav = () => {
       <MenuIconContainer>
         <MenuIcon />
       </MenuIconContainer>
+      <SocialMedia />
     </Wrapper>
   )
 }
@@ -15,8 +17,10 @@ const Wrapper = styled.nav`
   background-color: cyan;
   grid-area: nav;
   display: flex;
+  flex-direction: column;
   padding-top: 16px;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
 `
 
 const MenuIconContainer = styled.div`

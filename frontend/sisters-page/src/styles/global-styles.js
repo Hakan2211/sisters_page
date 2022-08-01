@@ -53,6 +53,12 @@ img, picture, video, canvas, svg {
   max-width: 100%;
 }
 
+ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 input, button, textarea, select {
   font: inherit;
 }
