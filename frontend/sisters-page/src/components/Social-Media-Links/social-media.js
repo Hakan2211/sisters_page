@@ -40,6 +40,7 @@ const IconContainer = styled.div`
 const Icon = styled.a`
   width: 100px;
   height: 100px;
+  text-decoration: none;
 
   img {
     object-fit: cover;
