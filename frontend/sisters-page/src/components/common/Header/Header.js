@@ -17,8 +17,9 @@ const Wrapper = styled.header`
   display: flex;
   flex-direction: column;
   padding-top: 16px;
-  //justify-content: center;
   align-items: start;
+  //justify-content: center;
+  //position: relative;
 `
 
 export default Header

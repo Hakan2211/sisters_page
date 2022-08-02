@@ -23,7 +23,6 @@ const Container = styled.main`
   grid-template-columns: 100px 1fr 100px;
   grid-template-rows: calc(100vh - 180px);
   grid-template-areas: 'header carousel nav';
-  background-color: yellow;
 `
 
 export default LandingPage

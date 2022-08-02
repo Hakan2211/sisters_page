@@ -13,6 +13,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  //position: absolute;
+  //top: 50%;
+
   //justify-content: space-evenly;
 `
 const Indicator = styled.div`
@@ -23,10 +26,10 @@ const Indicator = styled.div`
   width: 70px;
   border-radius: 5px;
   :first-child {
-    margin-top: 100px;
+    margin-top: 200px;
   }
   :not(:first-of-type) {
-    margin-top: 80px;
+    margin-top: 75px;
   }
 `
 export default CarouselIndicator
